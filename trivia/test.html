@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+        <title>TEST</title>
+        <style>
+            body {
+                background-color: red;
+            }
+
+            button {
+                background-color: green;
+            }
+
+            #color {
+                background-color: orange;
+            }
+        </style>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                let body = document.querySelector('body');
+                document.querySelector('#color').addEventListener('click', function() {
+                    body.style.backgroundColor = 'green';
+                });
+            });
+        </script>
+    </head>
+
+    <body>
+        <button id="color">ROJO</button>
+    </body>
+
+</html>
