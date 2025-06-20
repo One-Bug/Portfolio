@@ -1,0 +1,22 @@
+HTML tags
+1. <html>
+2. <head>
+3. <meta>
+4. <link>
+5. <script>
+6. <title>
+7. <body>
+8. <div>
+9. <header>
+10. <i>
+And so much more
+
+CSS Properties
+1. margin
+2. padding
+3. box-sizing
+4. display
+5. flex-direction
+
+Javascript and Bootstrap use
+I use javascript for the quiz on the page 3 and also for the webpage color change on the easter egg page or 4.html, also was used for the scroll detection and color change of the header.Just used bootstrap for the header and the icons.

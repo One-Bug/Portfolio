@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous">
+            </script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+        <link href="styles.css" rel="stylesheet">
+        <title>Homepage</title>
+    </head>
+
+    <body onload="NextQuestion(0)">
+        <div class="backg">
+            <header>
+                <div class="p-3 mb-2 text-white rounded-bottom titled">
+                    <h2 class="title">
+                        <i>
+                            <a href="index.html" class="index_t">
+                                CS50 HTML, CSS, JAVASCRIPT EXAMPLE PAGE
+                            </a>
+                        </i>
+
+                    </h2>
+                    <div class="dropdown">
+                        <i class="bi bi-list" id="drop"></i>
+                        <div class="content">
+                            <a href="index.html">Index</a>
+                            <a href="1.html">About me</a>
+                            <a href="2.html">Piano's History</a>
+                            <a href="3.html">Quiz</a>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <main style="align-items: center;">
+                <h1 style="text-align: center; font-family: helvetica, sans-serif;">
+                    <b>
+                        <i>
+                            <u>
+                                --QUIZ--
+                            </u>
+                        </i>
+                    </b>
+                </h1>
+                <hr>
+                <div class="mod-contain" id="score-mod">
+                    <div class="mod-cont-contain">
+                        <h1>Congratulations, Quiz Completed.</h1>
+                        <div class="grade-d">
+                            <p>Attempts : 10 </p>
+                            <p>Wrong Answers : <span id="wrong-a"></span></p>
+                            <p>Right Answers : <span id="right-a"></span></p>
+                            <p>Grade : <span id="grade-p"></span>%</p>
+                            <p><span id="remarks"></span></p>
+                        </div>
+                        <div class="mod-button-contain">
+                            <button onclick="closeScoreModal()">Continue</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="game-quiz-contain">
+                    <div class="game-details-contain">
+                        <h1> Score : <span id="player-score"> / 10 </span></h1>
+                        <h1> Question : <span id="question-numb"> / 10 </span></h1>
+                    </div>
+                    <div class="game-quest-contain">
+                        <h1 id="display-quest">.</h1>
+                    </div>
+                    <div class="game-opt-contain">
+                        <div class="mod-contain" id="opt-mod">
+                            <div class="mod-cont-contain">
+                                <h1>Please pick an option</h1>
+                                <div class="mod-button-contain">
+                                    <button onclick="closeOptionModal()">Continue</button>
+                                </div>
+                            </div>
+                        </div>
+                        <span>
+                            <input type="radio" id="opt-one" name="opt" class="radio" value="optionA">
+                            <label for="opt-one" class="opt" id="opt-one-label"></label>
+                        </span>
+                        <span>
+                            <input type="radio" id="opt-two" name="opt" class="radio" value="optionB">
+                            <label for="opt-two" class="opt" id="opt-two-label"></label>
+                        </span>
+                        <span>
+                            <input type="radio" id="opt-three" name="opt" class="radio" value="optionC">
+                            <label for="opt-three" class="opt" id="opt-three-label"></label>
+                        </span>
+                        <span>
+                            <input type="radio" id="opt-four" name="opt" class="radio" value="optionD">
+                            <label for="opt-four" class="opt" id="opt-four-label"></label>
+                        </span>
+                    </div>
+                    <div class="next-button-contain">
+                        <button onclick="handleNextQuestion()">Next Question</button>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <footer>
+            <div class="foot-row">
+                <div class="foot-col">
+                    <h4>Info</h4>
+                    <ul class="links">
+                        <li><a href="1.html">About me</a></li>
+                        <li><a href="4.html">Something</a></li>
+                        <li><a href="#">A thing</a></li>
+                        <li><a href="#">Another thing</a></li>
+                    </ul>
+                </div>
+                <div class="foot-col">
+                    <h4>Explore</h4>
+                    <ul class="links">
+                        <li><a href="index.html">Index</a></li>
+                        <li><a href="1.html">About me</a></li>
+                        <li><a href="2.html">Piano's History</a></li>
+                        <li><a href="3.html">Quiz</a></li>
+                    </ul>
+                </div>
+                <div class="foot-col">
+                    <h4>Legal</h4>
+                    <ul class="links">
+                        <li><a href="#">User Agreetment</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Security</a></li>
+                        <li><a href="#">Something else</a></li>
+                    </ul>
+                </div>
+                <div class="foot-col">
+                    <h4>News</h4>
+                    <p>
+                        Subscribe to the news to be up to date with all the new things added to the page
+                    </p>
+                    <form action="#">
+                        <input type="text" placeholder="Insert your email" required>
+                        <button type="submit">SUBSCRIBE</button>
+                    </form>
+                    <div class="social">
+                        <i class="fa-brands fa-facebook-f"></i>
+                        <i class="fa-brands fa-twitter"></i>
+                        <i class="fa-brands fa-linkedin"></i>
+                        <i class="fa-brands fa-github"></i>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <script>
+            const questions = [
+                {
+                    question: "What's the instrument of the history?",
+                    optionA: "Piano",
+                    optionB: "Monochord",
+                    optionC: "Dulcimer",
+                    optionD: "Harpsichord",
+                    correctOption: "optionA"
+                },
+                {
+                    question: "What's the instrument they made combining a clavichord and a harpsichord?",
+                    optionA: "Fortepiano",
+                    optionB: "Clavicitherium",
+                    optionC: "Polychord with bridge",
+                    optionD: "Monochord",
+                    correctOption: "optionA"
+                },
+                {
+                    question: "When was the piano invented?",
+                    optionA: "1600s",
+                    optionB: "1700s",
+                    optionC: "1750s",
+                    optionD: "1650s",
+                    correctOption: "optionB"
+                },
+                {
+                    question: "Where does the piano word come from?",
+                    optionA: "Piano",
+                    optionB: "PianoForte",
+                    optionC: "FortePiano",
+                    optionD: "MezzoFortePiano",
+                    correctOption: "optionB"
+                },
+                {
+                    question: "What's the italian, the word piano comes from?",
+                    optionA: "Clavicembalo col piano e mezzo forte",
+                    optionB: "Clavichord col piano e forte",
+                    optionC: "Clavichord col mezzo piano e forte",
+                    optionD: "Clavicembalo col piano e forte",
+                    correctOption: "optionD"
+                },
+                {
+                    question: "What does the piano allow that the instruments before it couldn't?",
+                    optionA: "Allow gradiations of volume",
+                    optionB: "Allow gradiations of tone",
+                    optionC: "Allow gradiations of loudness",
+                    optionD: "Allow gradiations of volume and tone",
+                    correctOption: "optionD"
+                },
+                {
+                    question: "What makes the piano's sounds vary?",
+                    optionA: "The pedal",
+                    optionB: "How many times do you strike a key",
+                    optionC: "How forcefully or softly the player presses or strikes the keys",
+                    optionD: "How softly the player presses",
+                    correctOption: "optionC"
+                },
+                {
+                    question: "What's the oldest instrument related to the piano?",
+                    optionA: "Polychord without bridge",
+                    optionB: "Dulcimer",
+                    optionC: "Harpsichord",
+                    optionD: "Monochord",
+                    correctOption: "optionD"
+                },
+                {
+                    question: "What's was the first string intrument with struck strings?",
+                    optionA: "Fortepiano",
+                    optionB: "Dulcimer",
+                    optionC: "Harpsichord",
+                    optionD: "Clavichord",
+                    correctOption: "optionB"
+                },
+                {
+                    question: "What's the instrument with strings struck by tangents?",
+                    optionA: "Clavichord",
+                    optionB: "Dulcimer",
+                    optionC: "Harpsichord",
+                    optionD: "Spinet virginal",
+                    correctOption: "optionD"
+                }
+            ]
+
+            let shuffledQuestions = []
+
+            function handleQuestions() {
+                while (shuffledQuestions.length <= 9) {
+                    const random = questions[Math.floor(Math.random() * questions.length)]
+                    if (!shuffledQuestions.includes(random)) {
+                        shuffledQuestions.push(random)
+                    }
+                }
+            }
+
+            let questionNumber = 1
+            let playerScore = 0
+            let wrongAttempt = 0
+            let indexNumber = 0
+
+            function NextQuestion(index) {
+                handleQuestions()
+                const currentQuestion = shuffledQuestions[index]
+                document.getElementById("question-numb").innerHTML = questionNumber
+                document.getElementById("player-score").innerHTML = playerScore
+                document.getElementById("display-quest").innerHTML = currentQuestion.question;
+                document.getElementById("opt-one-label").innerHTML = currentQuestion.optionA;
+                document.getElementById("opt-two-label").innerHTML = currentQuestion.optionB;
+                document.getElementById("opt-three-label").innerHTML = currentQuestion.optionC;
+                document.getElementById("opt-four-label").innerHTML = currentQuestion.optionD;
+            }
+
+            function checkForAnswer() {
+                const currentQuestion = shuffledQuestions[indexNumber]
+                const currentQuestionAnswer = currentQuestion.correctOption
+                const options = document.getElementsByName("opt")
+                let correctOption = null
+                options.forEach((option) => {
+                    if (option.value === currentQuestionAnswer) {
+                        correctOption = option.labels[0].id
+                    }
+                })
+                if (options[0].checked === false && options[1].checked === false && options[2].checked === false && options[3].checked === false) {
+                    document.getElementById('opt-mod').style.display = "flex"
+                }
+                options.forEach((option) => {
+                    if (option.checked === true && option.value === currentQuestionAnswer) {
+                        document.getElementById(correctOption).style.backgroundColor = "green"
+                        playerScore++
+                        indexNumber++
+                        setTimeout(() => {
+                            questionNumber++
+                        }, 1000)
+                    }
+                    else if (option.checked && option.values !== currentQuestionAnswer) {
+                        const wrongLabelId = option.labels[0].id
+                        document.getElementById(wrongLabelId).style.backgroundColor = "red"
+                        document.getElementById(correctOption).style.backgroundColor = "green"
+                        wrongAttempt++
+                        indexNumber++
+                        setTimeout(() => {
+                            questionNumber++
+                        }, 1000)
+                    }
+                })
+            }
+
+            function handleNextQuestion() {
+                checkForAnswer()
+                unCheckRadioButtons()
+                setTimeout(() => {
+                    if (indexNumber <= 9) {
+                        NextQuestion(indexNumber)
+                    }
+                    else {
+                        handleEndGame()
+                    }
+                    resetOptionBackground()
+                }, 1000);
+            }
+            function resetOptionBackground() {
+                const options = document.getElementsByName("opt");
+                options.forEach((option) => {
+                    document.getElementById(option.labels[0].id).style.backgroundColor = ""
+                })
+            }
+            function unCheckRadioButtons() {
+                const options = document.getElementsByName("opt");
+                for (let i = 0; i < options.length; i++) {
+                    options[i].checked = false;
+                }
+            }
+            function handleEndGame() {
+                let remark = null
+                let remarkColor = null
+                if (playerScore <= 3) {
+                    remark = "Bad Grades, Keep Trying"
+                    remarkColor = "red"
+                }
+                else if (playerScore >= 4 && playerScore < 7) {
+                    remark = "Average Grades, You can do better"
+                    remarkColor = "orange"
+                }
+                else if (playerScore > 7) {
+                    remark = "Excellent, Keep the good work going"
+                    remarkColor = "Green"
+                }
+                const playerGrade = (playerScore / 10) * 100
+                document.getElementById("remarks").innerHTML = remark
+                document.getElementById("remarks").style.color = remarkColor
+                document.getElementById("grade-p").innerHTML = playerGrade
+                document.getElementById("wrong-a").innerHTML = wrongAttempt
+                document.getElementById("right-a").innerHTML = playerScore
+                document.getElementById("score-mod").style.display = "flex"
+            }
+            function closeScoreModal() {
+                questionNumber = 1
+                playerScore = 0
+                wrongAttempt = 0
+                indexNumber = 0
+                suffledQuestions = []
+                NextQuestion(indexNumber)
+                document.getElementById('score-mod').style.display = "none"
+            }
+            function closeOptionModal() {
+                document.getElementById("opt-mod").style.display = "none"
+            }
+        </script>
+    </body>
+
+</html>
