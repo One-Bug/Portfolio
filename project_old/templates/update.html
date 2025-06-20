@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Update
+{% endblock %}
+
+{% block main %}
+<h2 style="margin-bottom: 20px">UPDATE</h2>
+<form action="/update/{{id}}" method="post" enctype="multipart/form-data">
+    {{ form.csrf_token }}
+    <div class="mb-3">
+        {{form.item.label}}
+        {{form.item(class='form-control', id="item")}}
+        {% for error in form.item.errors %}
+        <span class="text-danger">{{ error }}</span>
+        {% endfor %}
+    </div>
+    <div class="mb-3">
+        {{form.amount.label}}
+        {{form.amount(class='form-control', id="amount")}}
+        {% for error in form.amount.errors %}
+        <span class="text-danger">{{ error }}</span>
+        {% endfor %}
+    </div>
+    <div class="mb-3">
+        {{form.cost.label}}
+        {{form.cost(class='form-control', id="cost")}}
+        {% for error in form.cost.errors %}
+        <span class="text-danger">{{ error }}</span>
+        {% endfor %}
+    </div>
+    <div class="mb-3">
+        {{form.price.label}}
+        {{form.price(class='form-control', id="price")}}
+        {% for error in form.price.errors %}
+        <span class="text-danger">{{ error }}</span>
+        {% endfor %}
+    </div>
+    <div class="mb-3">
+        {{form.description.label}}
+        {{form.description(class='form-control', id="description")}}
+        {% for error in form.description.errors %}
+        <span class="text-danger">{{ error }}</span>
+        {% endfor %}
+    </div>
+    <div class="mb-3">
+        <input type="file" name="img" />
+    </div>
+
+    <p style="text-align: center;">If you want to update the image upload a new one</p>
+    <button class="btn btn-primary" type="submit">Update</button>
+</form>
+{% endblock %}

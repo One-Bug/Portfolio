@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Index
+{% endblock %}
+
+{% block main %}
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th class="text-start">Item</th>
+            <th class="text-end">Amount</th>
+            <th class="text-end">Cost</th>
+            <th class="text-end">Price</th>
+            <th class="text-end">Description</th>
+            <th class="text-end">Img</th>
+            <th class="text-end">Accion</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for data in data %}
+        <tr>
+            <td class="text-start">{{data.item}}</td>
+            <td class="text-end">{{data.amount}}</td>
+            <td class="text-end">{{"${:,.2f}".format(data.cost)}}</td>
+            <td class="text-end">{{"${:,.2f}".format(data.price)}}</td>
+            <td class="text-end">{{data.description}}</td>
+            <td class="text-end">
+                <span class="action-icon">
+                    <a href="/img/{{data.id}}"><i class="material-icons">&#xe3f4;</i></a>
+                </span>
+            </td>
+            <td class="text-end">
+                <span class="action-icon">
+                    <a href="/update/{{data.id}}"><i class="material-icons">&#xe3c9;</i></a>
+                </span>
+                <span >
+                    <a href="/delete/{{data.id}}"><i class="material-icons">&#xe872;</i></a>
+                </span>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
